@@ -5,11 +5,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import java.util.List;
 
-public class weather implements Serializable
-{
+public class Weather implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private yesterday yesterday;
+    private Yesterday yesterday;
     //七日预测
     @JsonProperty("forecast")
     private List<Forecast> forecast;
@@ -25,11 +24,15 @@ public class weather implements Serializable
     //温度
     private String wendu;
 
-    public yesterday getYesterday() {
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Yesterday getYesterday() {
         return yesterday;
     }
 
-    public void setYesterday(yesterday yesterday) {
+    public void setYesterday(Yesterday yesterday) {
         this.yesterday = yesterday;
     }
 
@@ -75,7 +78,13 @@ public class weather implements Serializable
 
     @Override
     public String toString() {
-        return "WeatherData [yesterday=" + yesterday + ", forecast=" + forecast + ", city=" + city + ", aqi=" + aqi
-                + ", ganmao=" + ganmao + ", wendu=" + wendu + "]";
+        return "Weather{" +
+                "yesterday=" + yesterday +
+                ", forecast=" + forecast +
+                ", City='" + city + '\'' +
+                ", aqi='" + aqi + '\'' +
+                ", ganmao='" + ganmao + '\'' +
+                ", wendu='" + wendu + '\'' +
+                '}';
     }
 }

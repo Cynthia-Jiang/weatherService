@@ -16,21 +16,19 @@
     <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
 </head>
 <body>
-<div class="container my-2">
+
     <div class="card">
         <div class="card-body">
 
-            <div th:object="${forecasts}" class="container my-5">
+            <div th:switch="${forecasts}" class="container my-5">
                 <div class="col-md-10">
-                    <div th:case="*" ">
+                    <h2 th:case="null">No Result!</h2>
                         <table class="table table-striped table-responsive-md">
                             <thead>
                             <tr>
                                 <th>日期</th>
                                 <th>最高温度</th>
                                 <th>最低温度</th>
-                                <th>风力</th>
-                                <th>风向</th>
                                 <th>详情</th>
                             </tr>
                             </thead>
@@ -39,18 +37,15 @@
                                 <td th:text="${forecast.date}"></td>
                                 <td th:text="${forecast.high}"></td>
                                 <td th:text="${forecast.low}"></td>
-                                <td th:text="${forecast.fengli}"></td>
-                                <td th:text="${forecast.fengxiang}"></td>
                                 <td th:text="${forecast.type}"></td>
                             </tr>
                             </tbody>
                         </table>
-                    </div>
 
                 </div>
             </div>
         </div>
     </div>
-</div>
+
 </body>
 </html>

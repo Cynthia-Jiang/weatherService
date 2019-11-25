@@ -1,6 +1,7 @@
 package pluralsight.demo.weatherservice.service;
 import java.io.IOException;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.http.ResponseEntity;
@@ -13,12 +14,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class WeatherDateServiceImpl implements WeatherDateService {
-/*
-    @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
-*/
 
     @Autowired
     private RestTemplate restTemplate;
@@ -55,6 +50,7 @@ public class WeatherDateServiceImpl implements WeatherDateService {
             weather=mapper.readValue(strBody, WeatherResponse.class);
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println("throw exception:" + ExceptionUtils.getStackTrace(e));
         }
         return weather;
     }
