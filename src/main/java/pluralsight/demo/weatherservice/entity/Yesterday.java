@@ -2,7 +2,7 @@ package pluralsight.demo.weatherservice.entity;
 
 import java.io.Serializable;
 
-public class yesterday implements Serializable {
+public class Yesterday implements Serializable {
     private static final long serialVersionUID = 1L;
     //日期
     private String date;

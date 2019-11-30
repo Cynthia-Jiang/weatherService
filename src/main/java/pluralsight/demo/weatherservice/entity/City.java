@@ -1,6 +1,6 @@
 package pluralsight.demo.weatherservice.entity;
 
-public class city {
+public class City {
     private String name;
     private WeatherResponse weatherResponse;
 
@@ -18,5 +18,13 @@ public class city {
 
     public WeatherResponse getWeather() {
         return weatherResponse;
+    }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "name='" + name + '\'' +
+                ", weatherResponse=" + weatherResponse +
+                '}';
     }
 }
